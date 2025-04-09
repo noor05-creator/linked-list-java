@@ -35,7 +35,7 @@ class LL {
     public void insertAtTail(int data) {
         Node newNode = new Node(data);
         if (tail == null) {
-            head = tail = newNode;    //previously i said it null which was a wrong thing to do 
+            head = tail = newNode;    //previously i said it null which was a wrong thing to do
         } else {
             tail.next = newNode;
             tail = newNode;
@@ -44,7 +44,7 @@ class LL {
 
     public void insertAtPosition(int data, int position) {
         Node newNode = new Node(data);
-        if (head == null) {
+        if (head == null) {   //insert at head
             head = tail = newNode;
         } else if (position < 0) {
             System.out.println("invalid position");
