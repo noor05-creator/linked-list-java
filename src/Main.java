@@ -129,13 +129,14 @@ class LL {
         }
         if (curr.next == null) {
             tail = prev;
-            if (prev != null) {
-                prev.next = null;
-
-
-            } else {
-                head = tail = null;
-            }
+            prev.next = null;
+//            if (prev != null) {
+//                prev.next = null;
+//
+//
+//            } else {
+//                head = tail = null;
+           // }
         } else {
             prev.next = curr.next;
             curr.next = null; //optional cuz of presence of garbage collector
