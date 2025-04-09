@@ -28,7 +28,6 @@ class LL {
         } else {
             newNode.next = head;
             head = newNode;
-
         }
     }
 
@@ -44,12 +43,17 @@ class LL {
 
     public void insertAtPosition(int data, int position) {
         Node newNode = new Node(data);
-        if (head == null) {   //insert at head
+        if (head == null) {   //insert at head when ll is empty
             head = tail = newNode;
         } else if (position < 0) {
             System.out.println("invalid position");
             return;
-        } else {
+        }
+        else if(position == 0)
+        {
+            insertAtHead(data);   //when ll is not empty and node is to be added at head
+        }
+        else {
             int i;
             Node temp = head;
             for (i = 0; i < position - 1; i++) {
