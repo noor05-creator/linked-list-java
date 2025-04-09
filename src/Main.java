@@ -35,7 +35,7 @@ class LL {
     public void insertAtTail(int data) {
         Node newNode = new Node(data);
         if (tail == null) {
-            head = tail = null;
+            head = tail = newNode;    //previously i said it null which was a wrong thing to do 
         } else {
             tail.next = newNode;
             tail = newNode;
@@ -216,6 +216,49 @@ class LL {
 
 
     }
+    public void removeCycle()
+    {
+        Node slow = head;
+        Node fast = head;
+        Node prev = null;
+        boolean hasCycle = false;
+
+        while(fast != null && fast.next!= null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow)
+            {
+                hasCycle = true;
+                break;
+            }
+        }
+        if( hasCycle == false)
+        {
+            System.out.println("No cycle exists");
+            return;
+        }
+
+        if(fast == head)
+        {
+            while(fast.next != head)
+            {
+                fast = fast.next;
+            }
+            fast.next = null;
+            return;
+        }
+        slow = head;
+        while(fast != slow)
+        {
+            slow = slow.next;
+            prev = fast;
+            fast = fast .next;
+        }
+        //removing cycle
+        prev.next = null;
+    }
+
 }
 
 
@@ -238,7 +281,7 @@ class LL {
             l1.print();
             l1.reverseList();
             l1.print();
-
+            l1.removeCycle();
 
         }
     }
